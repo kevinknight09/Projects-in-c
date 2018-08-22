@@ -3,7 +3,7 @@
 // dos.h is not detected in dev c++//
 #include<stdio.h>
 #include<conio.h>
-
+//Works only for integers//
 void main(){
 	
 	int n,num1,num2,result;
