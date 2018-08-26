@@ -1,0 +1,21 @@
+This is an offspring name predictor.
+
+well in many culture's around the world , it is noted that the offspring's name is derived from both the mothers and fathers name.
+Thus this is project is conceptualized in c language and using the basic libraries in it.
+Project idea and programmed by Rounak.
+
+Inputs:
+
+1.Fathers name.
+2.Mothers name.
+3.Preferred surname.
+
+Output:
+
+1.Baby boy name along with surname(ofc)
+2.Baby girl name along with surname(ofc)
+
+Thats all , hope you guys liked it.
+Post your suggestions and queries in the comments.
+
+Peace. 
