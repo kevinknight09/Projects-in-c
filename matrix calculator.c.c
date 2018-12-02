@@ -1,4 +1,4 @@
-//Matrix Calculator//
+//Matrix Calculator.//
 
 //code for finding all the basic operations of a matrix//
 
