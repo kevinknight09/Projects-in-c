@@ -1,6 +1,6 @@
 //Matrix Calculator//
 
-//code for finding all the basic operations of a matrix of a matrix//
+//code for finding all the basic operations of a matrix//
 
 //developed and conceptualized in c by rounak//
 
@@ -17,12 +17,13 @@ int m1[10][10],m2[10][10],m3[10][10];
 int n,r,c,r1,c1,r2,c2;
 int d,d1,d2,d3,d4;
 int i,j,k,l;
-int sum;
+int sum,addi=0;
+float root;
 char option,y;
 
 do
 {
-//commands that it can perform when the correct option is pressed// 
+//commands that it can perform when the correct option is pressed//
 
 printf("\t$Enter '1' for addition of two matrix\n");
 
@@ -33,6 +34,9 @@ printf("\t$Enter '3' for multiplication two of matrix\n");
 printf("\t$Enter '4' for finding the determinant of a matrix\n");
 
 printf("\t$Enter '5' for finding the inverse of a matrix\n");
+printf("\t$Enter '6' for finding the Normality of a matrix\n");
+printf("\t$Enter '7' for finding the Trace of a matrix\n");
+
 
 scanf("%d",&n);
 
@@ -42,7 +46,7 @@ switch(n)
 case 1:
 
 printf("YOU HAVE SELECTED ADDITION\n");
-
+label:
 printf("enter the order of the first matrix\n");
 scanf("%d%d",&r1,&c1);
 
@@ -52,10 +56,12 @@ scanf("%d%d",&r2,&c2);
 if(r2!=r1)
 {
 printf("invalid matrices for addition\n");
+goto label;
 }
 if(c1!=c2)
 {
 printf("invalid matrices for addition\n");
+goto label;
 }
 
 for(i=1;i<=r1;i++){
@@ -76,7 +82,24 @@ scanf("%d",&m2[i][j]);
 
 }
 }
+printf("The first matrix is:\n");
+for(i=1;i<=r1;i++){
+for(j=1;j<=c1;j++){
 
+
+printf("%d\t",m1[i][j]);
+}
+printf("\n");
+}
+printf("The Second matrix is:\n");
+for(i=1;i<=r2;i++){
+for(j=1;j<=c2;j++){
+
+
+printf("%d\t",m2[i][j]);
+}
+printf("\n");
+}
 for(i=1;i<=r1;i++)
 {
 for(j=1;j<=c2;j++)
@@ -103,7 +126,7 @@ case 3:
 printf("YOU HAVE SELECTED MULTIPLICATION\n");
 
 //code for implementation of multiplication of two matrix//
-
+label3:
 printf("enter the order of the first matrix\n");
 scanf("%d%d",&r1,&c1);
 
@@ -113,7 +136,7 @@ scanf("%d%d",&r2,&c2);
 if(r1!=c2)
 {
 printf("multiplicaton is not possible\n");
-break ;
+goto label3;
 }
 
 for(i=1;i<=r1;i++)
@@ -135,7 +158,24 @@ printf("Enter the %d`%d element in second matrix\n",i,j);
 scanf("%d",&m2[i][j]);
 }
 }
+printf("The first matrix is:\n");
+for(i=1;i<=r1;i++){
+for(j=1;j<=c1;j++){
 
+
+printf("%d\t",m1[i][j]);
+}
+printf("\n");
+}
+printf("The Second matrix is:\n");
+for(i=1;i<=r2;i++){
+for(j=1;j<=c2;j++){
+
+
+printf("%d\t",m2[i][j]);
+}
+printf("\n");
+}
 for(i=1;i<=r1;i++)
 {
 for(j=1;j<=c2;j++)
@@ -168,7 +208,7 @@ printf("YOU HAVE SELECTED SUBTRACTION\n");
 
 //code part of subtraction of two matrices//
 //very similar to addition with little variation//
-
+label2:
 printf("enter the order of the first matrix\n");
 scanf("%d%d",&r1,&c1);
 
@@ -178,13 +218,13 @@ scanf("%d%d",&r2,&c2);
 if(r2!=r1)
 {
 printf("invalid matrices for subtraction\n");
-
+goto label2;
 }
 
 if(c1!=c2)
 {
 printf("invalid matrices for subtraction\n");
-
+goto label2;
 }
 for(i=1;i<=r1;i++){
 for(j=1;j<=c1;j++){
@@ -199,6 +239,24 @@ printf("enter the %d`%d element in second matrix\n",i,j);
 
 scanf("%d",&m2[i][j]);
 }
+}
+printf("The first matrix is:\n");
+for(i=1;i<=r1;i++){
+for(j=1;j<=c1;j++){
+
+
+printf("%d\t",m1[i][j]);
+}
+printf("\n");
+}
+printf("The Second matrix is:\n");
+for(i=1;i<=r2;i++){
+for(j=1;j<=c2;j++){
+
+
+printf("%d\t",m2[i][j]);
+}
+printf("\n");
 }
 
 for(i=1;i<=r1;i++){
@@ -275,7 +333,62 @@ d=(m1[i][j]*m1[i+1][j+1])-(m1[i][j+1]*m1[i+1][j]);
 printf(" the value of determinant is =%d\n",d);
 
 break;
+case 6:
+printf("YOU HAVE SELECTED NORMALITY OF A MATRIX\n");
+ printf("enter the order of the matrix\n");
 
+scanf("%d%d",&r,&c);
+ for(i=1;i<=r;i++){
+for(j=1;j<=c;j++){
+
+printf("enter the %d`%d element\n",i,j);
+scanf("%d",&m1[i][j]);
+}
+}
+printf("The matrix is:\n");
+for(i=1;i<=r;i++){
+for(j=1;j<=c;j++){
+
+
+printf("%d\t",m1[i][j]);
+}
+printf("\n");
+}
+for(i=1;i<=r;i++){
+for(j=1;j<=c;j++){
+        addi=addi+pow(m1[i][j],2);
+}
+}
+root=(float)sqrt(addi);
+printf("The Normality is %f \n",root);
+break;
+
+case 7:
+printf("YOU HAVE SELECTED TRACE OF A MATRIX\n");
+printf("enter the order of the matrix\n");
+
+scanf("%d%d",&r,&c);
+for(i=1;i<=r;i++){
+for(j=1;j<=c;j++){
+
+printf("enter the %d`%d element\n",i,j);
+scanf("%d",&m1[i][j]);
+}
+}
+printf("The matrix is:\n");
+for(i=1;i<=r;i++){
+for(j=1;j<=c;j++){
+
+
+printf("%d\t",m1[i][j]);
+}
+printf("\n");
+}
+sum=0;
+for(i=1;i<=r;i++)
+    sum+=m1[i][i];
+printf("Trace is %d \n",sum);
+break;
 
 case 5:
 
@@ -360,7 +473,7 @@ printf("%d/%d\t",m2[j][i],d);
 printf("\n");
 }
 break ;
-} 
+}
 if(r==2)
 {
 //code for the order of 2 x 2 matrix//
@@ -413,6 +526,9 @@ option=getche();
 }
 while(option=='y');
 }
+
+
+
 
 
 
